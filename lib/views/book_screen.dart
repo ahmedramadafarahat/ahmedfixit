@@ -18,8 +18,10 @@ import 'package:multi_image_picker_plus/multi_image_picker_plus.dart';
 import 'package:uuid/uuid.dart';
 
 class BookScreen extends StatefulWidget {
-  const BookScreen({super.key, required this.name});
+  const BookScreen({super.key, required this.name, required this.person, required this.image});
   final String name;
+  final String person;
+  final String image;
   @override
   State<BookScreen> createState() => _BookScreenState();
 }
@@ -72,28 +74,26 @@ class _BookScreenState extends State<BookScreen> {
     return Scaffold(
       body: Column(
         children: [
-          const SizedBox(
+           SizedBox(
             height: 20,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 10),
+            padding:  EdgeInsets.only(left: 10),
             child: Row(
               children: [
-                Image(
+                Image.network(
                   height: PhoneSize.phoneHeight(context) * 0.15,
                   width: PhoneSize.phonewidth(context) * 0.25,
-                  image: const AssetImage(
-                    'assets/images/Don.jpg',
-                  ),
+                widget.image
                 ),
-                const Padding(
+                 Padding(
                   padding: EdgeInsets.only(left: 10),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'ahmed okal',
+                       widget.person,
                         style: TextStyle(
                           fontSize: 20,
                           color: kPrimaryColor,

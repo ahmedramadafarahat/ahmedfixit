@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import '../components/custom_dropdown.dart';
 import '../models/categories_model.dart';
 import '../models/citiesModel.dart';
+import '../models/services_model.dart';
 import '../src/data/api.dart';
 import '../src/data/app_size.dart';
 import 'package:http/http.dart' as http;
@@ -141,43 +142,51 @@ List technicians =[];
                                 ),
                               ),
                             ),
-                            FutureBuilder<List<ServiceCategoriesModel>>(
-                              future: categoriesFuture,
+                            FutureBuilder<List<ServicesModel>>(
+                              future: getServices(),
                               builder: (context, snapshot) {
                                 if (snapshot.connectionState == ConnectionState.waiting) {
                                   return CircularProgressIndicator();
                                 } else if (snapshot.hasError) {
                                   return Text('Error loading categories');
                                 } else {
-                                  List<ServiceCategoriesModel> categories = snapshot.data!;
-                                  return DropdownMenu(
-                                    trailingIcon: Icon(Icons.arrow_drop_down_sharp),
-                                    inputDecorationTheme: InputDecorationTheme(
-                                      hintStyle: TextStyle(
-                                        color: kPrimaryColor,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                      contentPadding: EdgeInsets.all(20),
-                                      border: OutlineInputBorder(
-                                        borderRadius: BorderRadius.all(Radius.circular(15)),
-                                        borderSide: BorderSide(color: kPrimaryColor),
-                                      ),
-                                    ),
-                                    width: MediaQuery.of(context).size.width * 0.9,
-                                    onSelected: (value) {
-                                      setState(() {
-                                        selectedServiceId = value as int?;
-                                      });
-                                    },
-                                    dropdownMenuEntries: [
-                                      for (var category in categories)
-                                        DropdownMenuEntry(
-                                          value: category.id,
-                                          label: category.title!,
-                                          labelWidget: Text(category.title!),
+                                  List<ServicesModel> categories = snapshot.data!;
+
+
+                                  return Column(
+                                    children: [
+                                      DropdownMenu(
+                                        trailingIcon: Icon(Icons.arrow_drop_down_sharp),
+                                        inputDecorationTheme: InputDecorationTheme(
+                                          hintStyle: TextStyle(
+                                            color: kPrimaryColor,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                          contentPadding: EdgeInsets.all(20),
+                                          border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                                            borderSide: BorderSide(color: kPrimaryColor),
+                                          ),
                                         ),
+                                        width: MediaQuery.of(context).size.width * 0.9,
+                                        onSelected: (value) {
+                                          setState(() {
+                                            selectedServiceId = value as int?;
+                                          });
+                                        },
+                                        dropdownMenuEntries: [
+                                          for (var category in categories)
+                                            DropdownMenuEntry(
+                                              value: category.id,
+                                              label: category.name!,
+                                              labelWidget: Text(category.name!),
+                                            ),
+                                        ],
+                                        hintText: 'CHOOSE THE PROBLEM',
+                                      ),
+                                      SizedBox(height: 20),
+
                                     ],
-                                    hintText: 'CHOOSE THE PROBLEM',
                                   );
                                 }
                               },

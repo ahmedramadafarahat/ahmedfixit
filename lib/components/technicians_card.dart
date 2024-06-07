@@ -11,11 +11,12 @@ class TechniciansCard extends StatelessWidget {
       required this.image,
       required this.name,
       required this.city,
-      required this.service});
+      required this.service, });
   final String image;
   final String name;
   final String service;
   final String city;
+
 
   @override
   Widget build(BuildContext context) {
@@ -130,7 +131,9 @@ class TechniciansCard extends StatelessWidget {
                         AppNavigation.push(
                             context,
                             BookScreen(
-                              name: service,
+                              name: service, person:name ,
+                              image: image,
+
                             ));
                       },
                       child: const Text(
