@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "576819138333",
+    "project_id": "fixit-b4060",
+    "storage_bucket": "fixit-b4060.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:576819138333:android:a17e67a1ad04ba661d5bf4",
+        "android_client_info": {
+          "package_name": "com.example.fixit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "576819138333-4o0criciqcljleij4jb2hhd3jofba8j8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fixit",
+            "certificate_hash": "0d0cea6952e89837e9ad35493c4320f253c55848"
+          }
+        },
+        {
+          "client_id": "576819138333-e95hkaqt7unhai27nj5a4cd6drinbtqu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJ_YcUu9AEHEWOda0oVlroDo1lvIZXmBA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "576819138333-e95hkaqt7unhai27nj5a4cd6drinbtqu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "576819138333-29hi45ifcg6f9cjundoi9q11t5ume9tl.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fixit"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
